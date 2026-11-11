@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tomaticos - Dulce de Tomate Casero y Derivados Artesanales</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            red: '#C83E2B',
+                            darkred: '#9B2C1D',
+                            green: '#3A5A40',
+                            cream: '#FAF6F0',
+                            dark: '#2B2B2B'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- FontAwesome icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body { background-color: #FAF6F0; color: #2B2B2B; }
+        .smooth-scroll { scroll-behavior: smooth; }
+    </style>
+</head>
+<body class="smooth-scroll font-sans antialiased">
+
+    <!-- Header / Navegación -->
+    <header class="sticky top-0 z-50 bg-brand-cream/95 backdrop-blur-md shadow-sm border-b border-stone-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <div class="flex items-center space-x-3">
+                <div class="bg-brand-red text-white p-2 rounded-full">
+                    <i class="fa-solid fa-apple-whole text-2xl"></i>
+                </div>
+                <div>
+                    <span class="text-2xl font-black tracking-tight text-brand-darkred">TOMATICOS</span>
+                    <p class="text-xs text-stone-500 font-medium">Sabor artesanal del campo</p>
+                </div>
+            </div>
+
+            <nav class="hidden md:flex space-x-8 font-medium text-stone-700">
+                <a href="#inicio" class="hover:text-brand-red transition">Inicio</a>
+                <a href="#proceso" class="hover:text-brand-red transition">Proceso Artesanal</a>
+                <a href="#productos" class="hover:text-brand-red transition">Despensa Artesanal</a>
+                <a href="#contacto" class="hover:text-brand-red transition">Contacto</a>
+            </nav>
+
+            <div class="flex items-center space-x-4">
+                <a href="https://wa.me/5491155551234?text=Hola%20Tomaticos!%20Quiero%20hacer%20una%20consulta." target="_blank" class="hidden sm:inline-flex items-center gap-2 bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-full text-sm font-semibold transition">
+                    <i class="fa-brands fa-whatsapp text-lg"></i>
+                    <span>WhatsApp</span>
+                </a>
+                <button onclick="toggleCart()" class="relative bg-brand-red hover:bg-brand-darkred text-white p-2.5 rounded-full transition">
+                    <i class="fa-solid fa-cart-shopping text-lg"></i>
+                    <span id="cart-count" class="absolute -top-1 -right-1 bg-brand-green text-white text-xs font-bold w-5 h-5 rounded-full flex items-center justify-center">0</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Banner Principal (Hero) -->
+    <section id="inicio" class="relative py-16 lg:py-24 overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid md:grid-cols-2 gap-12 items-center">
+            <div>
+                <span class="inline-block bg-red-100 text-brand-darkred font-semibold px-3 py-1 rounded-full text-sm mb-4">
+                    100% Natural • Receta Casera
+                </span>
+                <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-stone-900 leading-tight">
+                    El auténtico dulce de tomate <span class="text-brand-red">hecho a mano</span>.
+                </h1>
+                <p class="mt-4 text-lg text-stone-600">
+                    En Tomaticos transformamos cosechas seleccionadas en mermeladas, dulces gourmet y conserva de tomate con el sabor tradicional de la abuela.
+                </p>
+                <div class="mt-8 flex flex-wrap gap-4">
+                    <a href="#productos" class="bg-brand-red hover:bg-brand-darkred text-white px-6 py-3.5 rounded-xl font-bold shadow-lg transition">
+                        Ver Catálogo Completo
+                    </a>
+                    <a href="https://wa.me/5491155551234?text=Hola%20Tomaticos!%20Quiero%20pedir%20dulces." target="_blank" class="bg-white border-2 border-stone-300 hover:border-brand-red text-stone-800 px-6 py-3.5 rounded-xl font-bold transition flex items-center gap-2">
+                        <i class="fa-brands fa-whatsapp text-green-600 text-xl"></i> Pedir por WhatsApp
+                    </a>
+                </div>
+            </div>
+            <div class="relative">
+                <img src="https://images.unsplash.com/photo-1592924357228-91a4daadcfea?auto=format&fit=crop&q=80&w=800" alt="Tomates frescos y mermelada" class="rounded-3xl shadow-2xl object-cover w-full h-[450px]">
+                <div class="absolute -bottom-6 -left-6 bg-white p-4 rounded-2xl shadow-xl flex items-center gap-3 border border-stone-100">
+                    <div class="bg-brand-green/10 text-brand-green p-3 rounded-xl">
+                        <i class="fa-solid fa-leaf text-2xl"></i>
+                    </div>
+                    <div>
+                        <p class="font-bold text-stone-800">Sin Conservantes</p>
+                        <p class="text-xs text-stone-500">Tomates de huerta propia</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección de Productos (Despensa Artesanal) -->
+    <section id="productos" class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-12">
+                <h2 class="text-3xl font-bold text-stone-900">Nuestra Despensa Artesanal</h2>
+                <p class="text-stone-600 mt-2">Productos derivados del tomate elaborados en pequeñas tandas para preservar todo su aroma y sabor natural.</p>
+            </div>
+
+            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Producto 1: Dulce Tradicional -->
+                <div class="bg-stone-50 rounded-2xl overflow-hidden border border-stone-200 shadow-sm flex flex-col">
+                    <img src="https://images.unsplash.com/photo-1589227365533-cee630bd59bd?auto=format&fit=crop&q=80&w=500" alt="Dulce de Tomate Casero Tradicional" class="h-48 w-full object-cover">
+                    <div class="p-5 flex-1 flex flex-col justify-between">
+                        <div>
+                            <span class="text-xs font-semibold text-brand-green uppercase tracking-wide">Más Vendido</span>
+                            <h3 class="text-xl font-bold text-stone-900 mt-1">Dulce de Tomate Casero</h3>
+                            <p class="text-stone-600 text-sm mt-2">Receta tradicional con tomates maduros y azúcar en su punto justo. Ideal para tostadas y queso.</p>
+                        </div>
+                        <div class="mt-4 pt-4 border-t border-stone-200 flex items-center justify-between">
+                            <span class="text-xl font-extrabold text-brand-darkred">$4.500</span>
+                            <button onclick="addToCart('Dulce de Tomate Casero', 4500)" class="bg-brand-red hover:bg-brand-darkred text-white px-4 py-2 rounded-lg font-semibold text-sm transition">
+                                Agregar
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Producto 2: Dulce con Nuez y Especias -->
+                <div class="bg-stone-50 rounded-2xl overflow-hidden border border-stone-200 shadow-sm flex flex-col">
+                    <img src="https://images.unsplash.com/photo-1541544741938-0af808871cc0?auto=format&fit=crop&q=80&w=500" alt="Dulce de Tomate con Nuez y Especias" class="h-48 w-full object-cover">
+                    <div class="p-5 flex-1 flex flex-col justify-between">
+                        <div>
+                            <span class="text-xs font-semibold text-amber-600 uppercase tracking-wide">Especialidad</span>
+                            <h3 class="text-xl font-bold text-stone-900 mt-1">Dulce con Nuez y Especias</h3>
+                            <p class="text-stone-600 text-sm mt-2">Mermelada gourmet de tomate enriquecida con nueces troceadas y toque suave de canela.</p>
+                        </div>
+                        <div class="mt-4 pt-4 border-t border-stone-200 flex items-center justify-between">
+                            <span class="text-xl font-extrabold text-brand-darkred">$5.200</span>
+                            <button onclick="addToCart('Dulce con Nuez y Especias', 5200)" class="bg-brand-red hover:bg-brand-darkred text-white px-4 py-2 rounded-lg font-semibold text-sm transition">
+                                Agregar
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Producto 3: Mermelada Light -->
+                <div class="bg-stone-50 rounded-2xl overflow-hidden border border-stone-200 shadow-sm flex flex-col">
+                    <img src="https://images.unsplash.com/photo-1590779033100-9f60a05a013d?auto=format&fit=crop&q=80&w=500" alt="Mermelada Light de Tomate" class="h-48 w-full object-cover">
+                    <div class="p-5 flex-1 flex flex-col justify-between">
+                        <div>
+                            <span class="text-xs font-semibold text-emerald-600 uppercase tracking-wide">Saludable</span>
+                            <h3 class="text-xl font-bold text-stone-900 mt-1">Mermelada Light de Tomate</h3>
+                            <p class="text-stone-600 text-sm mt-2">Elaborada con tomates frescos reducidos en azúcares agregados. Mantiene el sabor natural.</p>
+                        </div>
+                        <div class="mt-4 pt-4 border-t border-stone-200 flex items-center justify-between">
+                            <span class="text-xl font-extrabold text-brand-darkred">$4.800</span>
+                            <button onclick="addToCart('Mermelada Light de Tomate', 4800)" class="bg-brand-red hover:bg-brand-darkred text-white px-4 py-2 rounded-lg font-semibold text-sm transition">
+                                Agregar
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Producto 4: Tomates Deshidratados -->
+                <div class="bg-stone-50 rounded-2xl overflow-hidden border border-stone-200 shadow-sm flex flex-col">
+                    <img src="https://images.unsplash.com/photo-1592924357228-91a4daadcfea?auto=format&fit=crop&q=80&w=500" alt="Tomates Secos en Aceite" class="h-48 w-full object-cover">
+                    <div class="p-5 flex-1 flex flex-col justify-between">
+                        <div>
+                            <span class="text-xs font-semibold text-stone-500 uppercase tracking-wide">Gourmet</span>
+                            <h3 class="text-xl font-bold text-stone-900 mt-1">Tomates Secos en Aceite</h3>
+                            <p class="text-stone-600 text-sm mt-2">Tomates secados al sol marinados en aceite de oliva virgen extra con hierbas aromáticas.</p>
+                        </div>
+                        <div class="mt-4 pt-4 border-t border-stone-200 flex items-center justify-between">
+                            <span class="text-xl font-extrabold text-brand-darkred">$5.800</span>
+                            <button onclick="addToCart('Tomates Secos en Aceite', 5800)" class="bg-brand-red hover:bg-brand-darkred text-white px-4 py-2 rounded-lg font-semibold text-sm transition">
+                                Agregar
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección de Contacto -->
+    <section id="contacto" class="py-16 bg-stone-900 text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid md:grid-cols-2 gap-12">
+            <div>
+                <h2 class="text-3xl font-bold">Contacta con Tomaticos</h2>
+                <p class="text-stone-400 mt-2">Atención directa para consultas, pedidos mayoristas y entregas a domicilio.</p>
+
+                <div class="mt-8 space-y-4">
+                    <div class="flex items-center gap-4">
+                        <div class="bg-brand-red p-3 rounded-full"><i class="fa-solid fa-phone text-xl"></i></div>
+                        <div>
+                            <p class="text-xs text-stone-400">Número de contacto</p>
+                            <p class="text-lg font-semibold">+54 9 11 5555-1234</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-4">
+                        <div class="bg-green-600 p-3 rounded-full"><i class="fa-brands fa-whatsapp text-xl"></i></div>
+                        <div>
+                            <p class="text-xs text-stone-400">Pedidos directo</p>
+                            <p class="text-lg font-semibold">WhatsApp Directo 24/7</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <form onsubmit="sendForm(event)" class="bg-stone-800 p-6 rounded-2xl space-y-4">
+                <h3 class="text-xl font-bold">Déjanos tu mensaje</h3>
+                <input type="text" placeholder="Tu nombre" required class="w-full p-3 rounded-xl bg-stone-700 border border-stone-600 text-white placeholder-stone-400 focus:outline-none focus:border-brand-red">
+                <input type="tel" placeholder="Tu teléfono" required class="w-full p-3 rounded-xl bg-stone-700 border border-stone-600 text-white placeholder-stone-400 focus:outline-none focus:border-brand-red">
+                <textarea placeholder="¿Qué productos deseas consultar?" rows="3" required class="w-full p-3 rounded-xl bg-stone-700 border border-stone-600 text-white placeholder-stone-400 focus:outline-none focus:border-brand-red"></textarea>
+                <button type="submit" class="w-full bg-brand-red hover:bg-brand-darkred py-3 rounded-xl font-bold transition">Enviar Consulta</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Modal Carrito de Compras -->
+    <div id="cart-modal" class="fixed inset-0 bg-black/50 hidden z-50 flex justify-end">
+        <div class="bg-white w-full max-w-md h-full p-6 flex flex-col justify-between overflow-y-auto">
+            <div>
+                <div class="flex justify-between items-center pb-4 border-b">
+                    <h3 class="text-xl font-bold text-stone-900">Tu Carrito</h3>
+                    <button onclick="toggleCart()" class="text-stone-500 hover:text-stone-800 text-2xl">&times;</button>
+                </div>
+                <div id="cart-items" class="py-4 space-y-4">
+                    <p class="text-stone-500 text-center">Tu carrito está vacío.</p>
+                </div>
+            </div>
+            <div class="border-t pt-4">
+                <div class="flex justify-between text-lg font-bold mb-4">
+                    <span>Total:</span>
+                    <span id="cart-total" class="text-brand-darkred">$0</span>
+                </div>
+                <button onclick="checkoutWhatsApp()" class="w-full bg-green-600 hover:bg-green-700 text-white py-3 rounded-xl font-bold flex items-center justify-center gap-2">
+                    <i class="fa-brands fa-whatsapp text-xl"></i> Confirmar por WhatsApp
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let cart = [];
+
+        function addToCart(title, price) {
+            const item = cart.find(i => i.title === title);
+            if(item) { item.qty++; } else { cart.push({title, price, qty: 1}); }
+            updateCart();
+        }
+
+        function updateCart() {
+            const container = document.getElementById('cart-items');
+            const count = document.getElementById('cart-count');
+            const totalEl = document.getElementById('cart-total');
+
+            count.innerText = cart.reduce((acc, i) => acc + i.qty, 0);
+            
+            if(cart.length === 0) {
+                container.innerHTML = '<p class="text-stone-500 text-center">Tu carrito está vacío.</p>';
+                totalEl.innerText = '$0';
+                return;
+            }
+
+            let html = '';
+            let total = 0;
+            cart.forEach(item => {
+                total += item.price * item.qty;
+                html += `
+                    <div class="flex justify-between items-center bg-stone-50 p-3 rounded-lg border">
+                        <div>
+                            <p class="font-bold text-stone-800 text-sm">${item.title}</p>
+                            <p class="text-xs text-stone-500">$${item.price} x ${item.qty}</p>
+                        </div>
+                        <span class="font-bold text-brand-darkred">$${item.price * item.qty}</span>
+                    </div>
+                `;
+            });
+            container.innerHTML = html;
+            totalEl.innerText = '$' + total.toLocaleString('es-AR');
+        }
+
+        function toggleCart() {
+            document.getElementById('cart-modal').classList.toggle('hidden');
+        }
+
+        function checkoutWhatsApp() {
+            if(cart.length === 0) return alert('El carrito está vacío');
+            let msg = 'Hola Tomaticos! Quisiera realizar el siguiente pedido:%0A';
+            cart.forEach(i => {
+                msg += `- ${i.qty}x ${i.title} ($${i.price * i.qty})%0A`;
+            });
+            const total = cart.reduce((acc, i) => acc + (i.price * i.qty), 0);
+            msg += `%0ATotal: $${total}`;
+            window.open(`https://wa.me/5491155551234?text=${msg}`, '_blank');
+        }
+
+        function sendForm(e) {
+            e.preventDefault();
+            alert('¡Gracias por tu consulta! Nos pondremos en contacto a la brevedad.');
+            e.target.reset();
+        }
+    </script>
+</body>
+</html>
